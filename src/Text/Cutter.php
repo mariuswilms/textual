@@ -34,7 +34,14 @@ class Text_Cutter {
 	}
 
 	public static function highlight($text, $phrase, $options = array()) {
-		return static::_adapter('html')->highlight($text, $phrase, $options);
+		$options += array(
+			'html' => false
+		);
+		if ($options['html']) {
+			unset($options['html']);
+			return static::_adapter('html')->highlight($text, $phrase, $options);
+		}
+		throw new Exception('Unimplemented; highlight support only for type `html`.');
 	}
 
 	public static function excerpt($string, $length = 50, $options = array()) {
