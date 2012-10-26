@@ -42,7 +42,7 @@ class Text_Cutter_Adapter_Html {
 				$segment = "(?![^<]+>)$segment(?![^<]+>)";
 
 				$with[] = (is_array($format)) ? $format[$key] : $format;
-				$replace[] = sprintf($options['regex'], $segment);
+				$replace[] = sprintf($regex, $segment);
 			}
 
 			return preg_replace($replace, $with, $text);
@@ -50,7 +50,7 @@ class Text_Cutter_Adapter_Html {
 			$phrase = '(' . preg_quote($phrase, '|') . ')';
 			$phrase = "(?![^<]+>)$phrase(?![^<]+>)";
 
-			return preg_replace(sprintf($options['regex'], $phrase), $format, $text);
+			return preg_replace(sprintf($regex, $phrase), $format, $text);
 		}
 	}
 
