@@ -46,12 +46,11 @@ class Text_Cutter_Adapter_Html {
 			}
 
 			return preg_replace($replace, $with, $text);
-		} else {
-			$phrase = '(' . preg_quote($phrase, '|') . ')';
-			$phrase = "(?![^<]+>)$phrase(?![^<]+>)";
-
-			return preg_replace(sprintf($regex, $phrase), $format, $text);
 		}
+		$phrase = '(' . preg_quote($phrase, '|') . ')';
+		$phrase = "(?![^<]+>)$phrase(?![^<]+>)";
+
+		return preg_replace(sprintf($regex, $phrase), $format, $text);
 	}
 
 	/**
