@@ -33,7 +33,7 @@ class Text_Cutter {
 		);
 		if ($options['html']) {
 			unset($options['html']);
-			return static::_adapter('html')->highlight($text, $phrase, $options);
+			return static::_adapter('html')->highlight($text, $phrase);
 		}
 		throw new Exception('Unimplemented; highlight support only for type `html`.');
 	}

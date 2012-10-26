@@ -23,27 +23,16 @@ class Text_Cutter_Adapter_Html {
 	 * Highlights a given phrase in a text. You can specify any expression in highlighter that
 	 * may include the \1 expression to include the $phrase found.
 	 *
-	 * ### Options:
-	 *
-	 * - `format` The piece of html with that the phrase will be highlighted
-	 * - `regex` a custom regex rule that is ued to match words, default is '|$tag|iu'
-	 *
 	 * @param string $text Text to search the phrase in
 	 * @param string $phrase The phrase that will be searched
-	 * @param array $options An array of html attributes and options.
+	 * @param string The piece of html with that the phrase will be highlighted
+	 * @param string A custom regex rule that is ued to match words, default is '|$tag|iu'
 	 * @return string The highlighted text
 	 */
-	public static function highlight($text, $phrase, $options = array()) {
+	public static function highlight($text, $phrase, $format = '<span class="highlight">\1</span>', $regex = '|%s|iu') {
 		if (empty($phrase)) {
 			return $text;
 		}
-
-		$default = array(
-			'format' => '<span class="highlight">\1</span>',
-			'regex' => "|%s|iu"
-		);
-		$options = array_merge($default, $options);
-		extract($options);
 
 		if (is_array($phrase)) {
 			$replace = array();
@@ -76,7 +65,6 @@ class Text_Cutter_Adapter_Html {
 	 * @param integer $length Length of returned string, including ellipsis.
 	 * @param string $end Will be used as Ending and appended to the trimmed string
 	 * @param boolean $exact If false, $text will not be cut mid-word
-	 * @param array $options An array of html attributes and options.
 	 * @return string Trimmed string.
 	 */
 	public static function limit($text, $length = 100, $end = '…', $exact = true) {
