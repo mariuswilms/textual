@@ -6,41 +6,6 @@
 
 class Text_Cutter_Adapter_Html {
 	/**
-	 * Highlights a given phrase in a text. You can specify any expression in
-	 * highlighter that may include the \1 expression to include the $phrase found.
-	 *
-	 * @param string $text Text to search the phrase in
-	 * @param string $phrase The phrase that will be searched
-	 * @param string The piece of html with that the phrase will be highlighted
-	 * @param string A custom regex rule that is ued to match words, default is '|$tag|iu'
-	 * @return string The highlighted text
-	 */
-	public function highlight($text, $phrase, $format = '<span class="highlight">\1</span>', $regex = '|%s|iu') {
-		if (empty($phrase)) {
-			return $text;
-		}
-
-		if (is_array($phrase)) {
-			$replace = array();
-			$with = array();
-
-			foreach ($phrase as $key => $segment) {
-				$segment = '(' . preg_quote($segment, '|') . ')';
-				$segment = "(?![^<]+>)$segment(?![^<]+>)";
-
-				$with[] = (is_array($format)) ? $format[$key] : $format;
-				$replace[] = sprintf($regex, $segment);
-			}
-
-			return preg_replace($replace, $with, $text);
-		}
-		$phrase = '(' . preg_quote($phrase, '|') . ')';
-		$phrase = "(?![^<]+>)$phrase(?![^<]+>)";
-
-		return preg_replace(sprintf($regex, $phrase), $format, $text);
-	}
-
-	/**
 	 * Truncates text. Cuts a string to the length of $length and replaces the
 	 * last characters with the ending if the text is longer than length.
 	 *
@@ -132,6 +97,41 @@ class Text_Cutter_Adapter_Html {
 			$truncate .= '</' . $tag . '>';
 		}
 		return $truncate;
+	}
+
+	/**
+	 * Highlights a given phrase in a text. You can specify any expression in
+	 * highlighter that may include the \1 expression to include the $phrase found.
+	 *
+	 * @param string $text Text to search the phrase in
+	 * @param string $phrase The phrase that will be searched
+	 * @param string The piece of html with that the phrase will be highlighted
+	 * @param string A custom regex rule that is ued to match words, default is '|$tag|iu'
+	 * @return string The highlighted text
+	 */
+	public function highlight($text, $phrase, $format = '<span class="highlight">\1</span>', $regex = '|%s|iu') {
+		if (empty($phrase)) {
+			return $text;
+		}
+
+		if (is_array($phrase)) {
+			$replace = array();
+			$with = array();
+
+			foreach ($phrase as $key => $segment) {
+				$segment = '(' . preg_quote($segment, '|') . ')';
+				$segment = "(?![^<]+>)$segment(?![^<]+>)";
+
+				$with[] = (is_array($format)) ? $format[$key] : $format;
+				$replace[] = sprintf($regex, $segment);
+			}
+
+			return preg_replace($replace, $with, $text);
+		}
+		$phrase = '(' . preg_quote($phrase, '|') . ')';
+		$phrase = "(?![^<]+>)$phrase(?![^<]+>)";
+
+		return preg_replace(sprintf($regex, $phrase), $format, $text);
 	}
 
 	/**
