@@ -97,4 +97,5 @@ class Text_Cutter {
 		return $text;
 	}
 }
+
 ?>
