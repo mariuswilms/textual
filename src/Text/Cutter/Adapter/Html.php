@@ -177,7 +177,43 @@ class Text_Cutter_Adapter_Html {
 		return $excerpt;
 	}
 
-	public static function autoLinkEmails($text) {
+	/**
+	 * Adds links (<a href=....) to a given text, by finding text that begins with
+	 * strings like http:// and ftp://.
+	 *
+	 * @param string $text Text
+	 * @param array $options Array of HTML options, and options listed above.
+	 * @return string The text with links
+	 */
+	public function autoLinkUrls($text) {
+		$placeholders = array();
+		$replace = array();
+
+		$insertPlaceholder = function($matches) use (&$placeholders) {
+			$key = md5($matches[0]);
+			$placeholders[$key] = $matches[0];
+
+			return $key;
+		};
+
+		$pattern = '#(?<!href="|src="|">)((?:https?|ftp|nntp)://[a-z0-9.\-:]+(?:/[^\s]*)?)#i';
+		$text = preg_replace_callback($pattern, $insertPlaceholder, $text);
+
+		$pattern = '#(?<!href="|">)(?<!\b[[:punct:]])(?<!http://|https://|ftp://|nntp://)www.[^\n\%\ <]+[^<\n\%\,\.\ <](?<!\))#i';
+		$text = preg_replace_callback($pattern, $insertPlaceholder, $text);
+
+		foreach ($placeholders as $hash => $url) {
+			$link = $url;
+
+			if (!preg_match('#^[a-z]+\://#', $url)) {
+				$url = 'http://' . $url;
+			}
+			$replace[$hash] = "<a href=\"{$url}\">{$link}</a>";
+		}
+		return strtr($text, $replace);
+	}
+
+	public function autoLinkEmails($text) {
 		$atom  = '[a-z0-9!#$%&\'*+\/=?^_`{|}~-]';
 		$regex = '/(' . $atom . '+(?:\.' . $atom . '+)*@[a-z0-9-]+(?:\.[a-z0-9-]+)+)/i';
 
