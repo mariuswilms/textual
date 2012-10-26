@@ -213,6 +213,7 @@ class Text_Cutter_Adapter_Html {
 		return strtr($text, $replace);
 	}
 
+	// This doesn't use the placholder/escaping workaround from CakePHP 2's TextHelper yet.
 	public function autoLinkEmails($text) {
 		$atom  = '[a-z0-9!#$%&\'*+\/=?^_`{|}~-]';
 		$regex = '/(' . $atom . '+(?:\.' . $atom . '+)*@[a-z0-9-]+(?:\.[a-z0-9-]+)+)/i';
