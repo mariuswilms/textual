@@ -18,7 +18,6 @@
  */
 
 class Text_Cutter_Adapter_Html {
-
 	/**
 	 * Highlights a given phrase in a text. You can specify any expression in
 	 * highlighter that may include the \1 expression to include the $phrase found.
@@ -117,6 +116,7 @@ class Text_Cutter_Adapter_Html {
 			$truncateCheck = mb_substr($truncate, 0, $spacepos);
 			$lastOpenTag = mb_strrpos($truncateCheck, '<');
 			$lastCloseTag = mb_strrpos($truncateCheck, '>');
+
 			if ($lastOpenTag > $lastCloseTag) {
 				preg_match_all('/<[\w]+[^>]*>/s', $truncate, $lastTagMatches);
 				$lastTag = array_pop($lastTagMatches[0]);
@@ -124,6 +124,7 @@ class Text_Cutter_Adapter_Html {
 			}
 			$bits = mb_substr($truncate, $spacepos);
 			preg_match_all('/<\/([a-z]+)>/', $bits, $droppedTags, PREG_SET_ORDER);
+
 			if (!empty($droppedTags)) {
 				if (!empty($openTags)) {
 					foreach ($droppedTags as $closingTag) {
@@ -144,7 +145,6 @@ class Text_Cutter_Adapter_Html {
 		foreach ($openTags as $tag) {
 			$truncate .= '</' . $tag . '>';
 		}
-
 		return $truncate;
 	}
 
