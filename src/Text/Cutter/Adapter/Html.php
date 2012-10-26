@@ -105,8 +105,8 @@ class Text_Cutter_Adapter_Html {
 	 *
 	 * @param string $text Text to search the phrase in
 	 * @param string $phrase The phrase that will be searched
-	 * @param string The piece of html with that the phrase will be highlighted
-	 * @param string A custom regex rule that is ued to match words, default is '|$tag|iu'
+	 * @param string $format The piece of html with that the phrase will be highlighted
+	 * @param string $regex A custom regex rule that is ued to match words, default is '|$tag|iu'
 	 * @return string The highlighted text
 	 */
 	public function highlight($text, $phrase, $format = '<span class="highlight">\1</span>', $regex = '|%s|iu') {
