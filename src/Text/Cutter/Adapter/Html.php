@@ -23,7 +23,7 @@
  *
  * @package       Cake.Utility
  */
-class String {
+class Text_Cutter_Adapter_Html {
 
 /**
  * Generate a random UUID
