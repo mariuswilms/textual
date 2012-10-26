@@ -17,29 +17,22 @@
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 
-/**
- * String handling methods.
- *
- *
- * @package       Cake.Utility
- */
 class Text_Cutter_Adapter_Html {
 
-/**
- * Highlights a given phrase in a text. You can specify any expression in highlighter that
- * may include the \1 expression to include the $phrase found.
- *
- * ### Options:
- *
- * - `format` The piece of html with that the phrase will be highlighted
- * - `regex` a custom regex rule that is ued to match words, default is '|$tag|iu'
- *
- * @param string $text Text to search the phrase in
- * @param string $phrase The phrase that will be searched
- * @param array $options An array of html attributes and options.
- * @return string The highlighted text
- * @link http://book.cakephp.org/2.0/en/core-libraries/helpers/text.html#TextHelper::highlight
- */
+	/**
+	 * Highlights a given phrase in a text. You can specify any expression in highlighter that
+	 * may include the \1 expression to include the $phrase found.
+	 *
+	 * ### Options:
+	 *
+	 * - `format` The piece of html with that the phrase will be highlighted
+	 * - `regex` a custom regex rule that is ued to match words, default is '|$tag|iu'
+	 *
+	 * @param string $text Text to search the phrase in
+	 * @param string $phrase The phrase that will be searched
+	 * @param array $options An array of html attributes and options.
+	 * @return string The highlighted text
+	 */
 	public static function highlight($text, $phrase, $options = array()) {
 		if (empty($phrase)) {
 			return $text;
@@ -73,23 +66,22 @@ class Text_Cutter_Adapter_Html {
 		}
 	}
 
-/**
- * Truncates text.
- *
- * Cuts a string to the length of $length and replaces the last characters
- * with the ending if the text is longer than length.
- *
- * ### Options:
- *
- * - `ending` Will be used as Ending and appended to the trimmed string
- * - `exact` If false, $text will not be cut mid-word
- *
- * @param string $text String to truncate.
- * @param integer $length Length of returned string, including ellipsis.
- * @param array $options An array of html attributes and options.
- * @return string Trimmed string.
- * @link http://book.cakephp.org/2.0/en/core-libraries/helpers/text.html#TextHelper::truncate
- */
+	/**
+	 * Truncates text.
+	 *
+	 * Cuts a string to the length of $length and replaces the last characters
+	 * with the ending if the text is longer than length.
+	 *
+	 * ### Options:
+	 *
+	 * - `ending` Will be used as Ending and appended to the trimmed string
+	 * - `exact` If false, $text will not be cut mid-word
+	 *
+	 * @param string $text String to truncate.
+	 * @param integer $length Length of returned string, including ellipsis.
+	 * @param array $options An array of html attributes and options.
+	 * @return string Trimmed string.
+	 */
 	public static function truncate($text, $length = 100, $options = array()) {
 		$default = array(
 			'ending' => '...', 'exact' => true
@@ -179,17 +171,16 @@ class Text_Cutter_Adapter_Html {
 		return $truncate;
 	}
 
-/**
- * Extracts an excerpt from the text surrounding the phrase with a number of characters on each side
- * determined by radius.
- *
- * @param string $text String to search the phrase in
- * @param string $phrase Phrase that will be searched for
- * @param integer $radius The amount of characters that will be returned on each side of the founded phrase
- * @param string $ending Ending that will be appended
- * @return string Modified string
- * @link http://book.cakephp.org/2.0/en/core-libraries/helpers/text.html#TextHelper::excerpt
- */
+	/**
+	 * Extracts an excerpt from the text surrounding the phrase with a number of characters on each side
+	 * determined by radius.
+	 *
+	 * @param string $text String to search the phrase in
+	 * @param string $phrase Phrase that will be searched for
+	 * @param integer $radius The amount of characters that will be returned on each side of the founded phrase
+	 * @param string $ending Ending that will be appended
+	 * @return string Modified string
+	 */
 	public static function excerpt($text, $phrase, $radius = 100, $ending = '...') {
 		if (empty($text) || empty($phrase)) {
 			return self::truncate($text, $radius * 2, array('ending' => $ending));
