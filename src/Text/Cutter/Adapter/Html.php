@@ -20,8 +20,8 @@
 class Text_Cutter_Adapter_Html {
 
 	/**
-	 * Highlights a given phrase in a text. You can specify any expression in highlighter that
-	 * may include the \1 expression to include the $phrase found.
+	 * Highlights a given phrase in a text. You can specify any expression in
+	 * highlighter that may include the \1 expression to include the $phrase found.
 	 *
 	 * @param string $text Text to search the phrase in
 	 * @param string $phrase The phrase that will be searched
@@ -56,10 +56,8 @@ class Text_Cutter_Adapter_Html {
 	}
 
 	/**
-	 * Truncates text.
-	 *
-	 * Cuts a string to the length of $length and replaces the last characters
-	 * with the ending if the text is longer than length.
+	 * Truncates text. Cuts a string to the length of $length and replaces the
+	 * last characters with the ending if the text is longer than length.
 	 *
 	 * @param string $text String to truncate.
 	 * @param integer $length Length of returned string, including ellipsis.
@@ -151,8 +149,8 @@ class Text_Cutter_Adapter_Html {
 	}
 
 	/**
-	 * Extracts an excerpt from the text surrounding the phrase with a number of characters on each side
-	 * determined by radius.
+	 * Extracts an excerpt from the text surrounding the phrase with a number
+	 * of characters on each side determined by radius.
 	 *
 	 * @param string $text String to search the phrase in
 	 * @param string $phrase Phrase that will be searched for
