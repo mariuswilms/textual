@@ -262,5 +262,6 @@ class Text_Cutter_Adapter_Html {
 			return array_pop($list);
 		}
 	}
-
 }
+
+?>
