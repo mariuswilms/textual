@@ -82,7 +82,7 @@ class Text_Cutter_Adapter_Html {
 	 * @param array $options An array of html attributes and options.
 	 * @return string Trimmed string.
 	 */
-	public static function truncate($text, $length = 100, $options = array()) {
+	public static function limit($text, $length = 100, $options = array()) {
 		$default = array(
 			'ending' => '...', 'exact' => true
 		);

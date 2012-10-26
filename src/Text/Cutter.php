@@ -24,7 +24,7 @@ class Text_Cutter {
 			$options['ending'] = $options['end'];
 			unset($options['end']);
 
-			return static::_adapter('html')->truncate($string, $length, $options);
+			return static::_adapter('html')->limit($string, $length, $options);
 		} else {
 			unset($options['exact']);
 			unset($options['html']);
