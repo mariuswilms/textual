@@ -19,7 +19,7 @@ class Text_Cutter_Adapter_Html {
 		if (mb_strlen(preg_replace('/<.*?>/', '', $text)) <= $length) {
 			return $text;
 		}
-		$totalLength = mb_strlen(strip_tags($ending));
+		$totalLength = mb_strlen(strip_tags($end));
 		$openTags = array();
 		$truncate = '';
 
@@ -91,7 +91,7 @@ class Text_Cutter_Adapter_Html {
 			}
 			$truncate = mb_substr($truncate, 0, $spacepos);
 		}
-		$truncate .= $ending;
+		$truncate .= $end;
 
 		foreach ($openTags as $tag) {
 			$truncate .= '</' . $tag . '>';
@@ -141,22 +141,22 @@ class Text_Cutter_Adapter_Html {
 	 * @param string $text String to search the phrase in
 	 * @param string $phrase Phrase that will be searched for
 	 * @param integer $radius The amount of characters that will be returned on each side of the founded phrase
-	 * @param string $ending Ending that will be appended
+	 * @param string $end Ending that will be appended
 	 * @return string Modified string
 	 */
-	public function excerpt($text, $phrase, $radius = 100, $ending = '…') {
+	public function excerpt($text, $phrase, $radius = 100, $end = '…') {
 		if (empty($text) || empty($phrase)) {
-			return self::truncate($text, $radius * 2, array('ending' => $ending));
+			return self::truncate($text, $radius * 2, array('end' => $end));
 		}
 
-		$append = $prepend = $ending;
+		$append = $prepend = $end;
 
 		$phraseLen = mb_strlen($phrase);
 		$textLen = mb_strlen($text);
 
 		$pos = mb_strpos(mb_strtolower($text), mb_strtolower($phrase));
 		if ($pos === false) {
-			return mb_substr($text, 0, $radius) . $ending;
+			return mb_substr($text, 0, $radius) . $end;
 		}
 
 		$startPos = $pos - $radius;
