@@ -172,7 +172,7 @@ class Text_Cutter_Adapter_Html {
 	 * @param string $ending Ending that will be appended
 	 * @return string Modified string
 	 */
-	public static function excerpt($text, $phrase, $radius = 100, $ending = '...') {
+	public static function excerpt($text, $phrase, $radius = 100, $ending = '…') {
 		if (empty($text) || empty($phrase)) {
 			return self::truncate($text, $radius * 2, array('ending' => $ending));
 		}
