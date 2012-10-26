@@ -85,16 +85,36 @@ class Text_Cutter {
 	}
 
 	public static function autoLink($text, $options = array()) {
-		$text = static::autoLinkUrls($text);
-		$text = static::autoLinkEmails($text);
+		$options += array(
+			'html' => false
+		);
+		if (!$options['html']) {
+			throw new Exception('Unimplemented; autolinking only for type `html`.');
+		}
+
+		$text = static::_adapter('html')->autoLinkUrls($text);
+		$text = static::_adapter('html')->autoLinkEmails($text);
 		return $text;
 	}
 
-	public static function autoLinkUrls($text) {
+	public static function autoLinkUrls($text, $options = array()) {
+		$options += array(
+			'html' => false
+		);
+		if (!$options['html']) {
+			throw new Exception('Unimplemented; autolinking urls only for type `html`.');
+		}
 		return static::_adapter('html')->autoLinkUrls($text);
 	}
 
-	public static function autoLinkEmails($text) {
+	public static function autoLinkEmails($text, $options = array()) {
+		$options += array(
+			'html' => false
+		);
+		if (!$options['html']) {
+			throw new Exception('Unimplemented; autolinking urls only for type `html`.');
+		}
+
 		$atom  = '[a-z0-9!#$%&\'*+\/=?^_`{|}~-]';
 		$regex = '/(' . $atom . '+(?:\.' . $atom . '+)*@[a-z0-9-]+(?:\.[a-z0-9-]+)+)/i';
 
