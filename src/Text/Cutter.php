@@ -17,8 +17,8 @@ class Text_Cutter {
 	public static function limit($string, $length = 50, $options = array()) {
 		$options += array(
 			'html' => false,
-			'exact' => true,
-			'end' => '…'
+			'end' => '…',
+			'exact' => true // html mode only
 		);
 		if ($options['html']) {
 			return static::_adapter('html')->limit($string, $length, $options['end'], $options['exact']);
@@ -44,7 +44,7 @@ class Text_Cutter {
 			'end' => '…',
 			'minLineLength' => 100, // non-html mode only
 			'start' => '…', // non-html mode only
-			'phrase' => null, // html-mode only
+			'phrase' => null // html-mode only
 		);
 		if ($options['html']) {
 			if (!$options['phrase']) {
