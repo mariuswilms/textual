@@ -15,7 +15,7 @@ class Text_Cutter_Adapter_Html {
 	 * @param string A custom regex rule that is ued to match words, default is '|$tag|iu'
 	 * @return string The highlighted text
 	 */
-	public static function highlight($text, $phrase, $format = '<span class="highlight">\1</span>', $regex = '|%s|iu') {
+	public function highlight($text, $phrase, $format = '<span class="highlight">\1</span>', $regex = '|%s|iu') {
 		if (empty($phrase)) {
 			return $text;
 		}
@@ -50,7 +50,7 @@ class Text_Cutter_Adapter_Html {
 	 * @param boolean $exact If false, $text will not be cut mid-word
 	 * @return string Trimmed string.
 	 */
-	public static function limit($text, $length = 100, $end = '…', $exact = true) {
+	public function limit($text, $length = 100, $end = '…', $exact = true) {
 		if (mb_strlen(preg_replace('/<.*?>/', '', $text)) <= $length) {
 			return $text;
 		}
@@ -144,7 +144,7 @@ class Text_Cutter_Adapter_Html {
 	 * @param string $ending Ending that will be appended
 	 * @return string Modified string
 	 */
-	public static function excerpt($text, $phrase, $radius = 100, $ending = '…') {
+	public function excerpt($text, $phrase, $radius = 100, $ending = '…') {
 		if (empty($text) || empty($phrase)) {
 			return self::truncate($text, $radius * 2, array('ending' => $ending));
 		}
