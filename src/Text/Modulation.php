@@ -1,6 +1,6 @@
 <?php
 
-class Text_Cutter {
+class Text_Modulation {
 
 	protected static $_adapters = array();
 
@@ -8,12 +8,13 @@ class Text_Cutter {
 		if (isset(static::$_adapters[$name])) {
 			return static::$_adapters[$name];
 		}
-		$class = 'Text_Cutter_Adapter_' . ucfirst($name);
+		$class = 'Text_Modulation_Adapter_' . ucfirst($name);
 		require_once str_replace('_', '/', $class) . '.php';
 
 		return static::$_adapters[$name] = new $class();
 	}
 
+	// html support
 	public static function limit($string, $length = 50, $options = array()) {
 		$options += array(
 			'html' => false,
@@ -27,6 +28,7 @@ class Text_Cutter {
 		}
 	}
 
+	// html only
 	public static function highlight($text, $phrase, $options = array()) {
 		$options += array(
 			'html' => false
@@ -37,6 +39,7 @@ class Text_Cutter {
 		throw new Exception('Unimplemented; highlight support only for type `html`.');
 	}
 
+	// html and text
 	public static function excerpt($string, $length = 50, $options = array()) {
 		$options += array(
 			'html' => false,
@@ -61,7 +64,14 @@ class Text_Cutter {
 		);
 	}
 
-	public static function lines($string, $lines = 15, $end = '…') {
+	// text only
+	public static function lines($string, $lines = 15, $end = '…', $options = array()) {
+		$options += array(
+			'html' => false
+		);
+		if ($options['html']) {
+			throw new Exception('Unimplemented; no lines support for type `html`.');
+		}
 		return static::_adapter('text')->lines($string, $lines, $end);
 	}
 

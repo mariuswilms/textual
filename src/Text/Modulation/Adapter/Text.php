@@ -1,6 +1,6 @@
 <?php
 
-class Text_Cutter_Adapter_Text {
+class Text_Modulation_Adapter_Text {
 
 	const START_CONNECT_CHARS = ' .,:;!?-&(<[_-+\'';
 	const END_CONNECT_CHARS   = ' .,:;!?-&)>]_-+\'';

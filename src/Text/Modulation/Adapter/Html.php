@@ -4,7 +4,7 @@
  * Copyright 2005-2012, Cake Software Foundation, Inc. (http://cakefoundation.org)
  */
 
-class Text_Cutter_Adapter_Html {
+class Text_Modulation_Adapter_Html {
 	/**
 	 * Truncates text. Cuts a string to the length of $length and replaces the
 	 * last characters with the ending if the text is longer than length.
