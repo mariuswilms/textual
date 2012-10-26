@@ -16,19 +16,13 @@ class Text_Cutter {
 
 	public static function limit($string, $length = 50, $options = array()) {
 		$options += array(
-			'exact' => true,
 			'html' => false,
+			'exact' => true,
 			'end' => '…'
 		);
 		if ($options['html']) {
-			$options['ending'] = $options['end'];
-			unset($options['end']);
-
-			return static::_adapter('html')->limit($string, $length, $options);
+			return static::_adapter('html')->limit($string, $length, $options['end'], $options['exact']);
 		} else {
-			unset($options['exact']);
-			unset($options['html']);
-
 			return static::_adapter('text')->limit($string, $length, $options['end']);
 		}
 	}

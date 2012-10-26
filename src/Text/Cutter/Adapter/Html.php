@@ -72,23 +72,14 @@ class Text_Cutter_Adapter_Html {
 	 * Cuts a string to the length of $length and replaces the last characters
 	 * with the ending if the text is longer than length.
 	 *
-	 * ### Options:
-	 *
-	 * - `ending` Will be used as Ending and appended to the trimmed string
-	 * - `exact` If false, $text will not be cut mid-word
-	 *
 	 * @param string $text String to truncate.
 	 * @param integer $length Length of returned string, including ellipsis.
+	 * @param string $end Will be used as Ending and appended to the trimmed string
+	 * @param boolean $exact If false, $text will not be cut mid-word
 	 * @param array $options An array of html attributes and options.
 	 * @return string Trimmed string.
 	 */
-	public static function limit($text, $length = 100, $options = array()) {
-		$default = array(
-			'ending' => '...', 'exact' => true
-		);
-		$options = array_merge($default, $options);
-		extract($options);
-
+	public static function limit($text, $length = 100, $end = '…', $exact = true) {
 		if (mb_strlen(preg_replace('/<.*?>/', '', $text)) <= $length) {
 			return $text;
 		}
