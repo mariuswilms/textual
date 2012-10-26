@@ -222,23 +222,6 @@ class Text_Cutter_Adapter_Html {
 
 		return $excerpt;
 	}
-
-/**
- * Creates a comma separated list where the last two items are joined with 'and', forming natural English
- *
- * @param array $list The list to be joined
- * @param string $and The word used to join the last and second last items together with. Defaults to 'and'
- * @param string $separator The separator used to join all the other items together. Defaults to ', '
- * @return string The glued together string.
- * @link http://book.cakephp.org/2.0/en/core-libraries/helpers/text.html#TextHelper::toList
- */
-	public static function toList($list, $and = 'and', $separator = ', ') {
-		if (count($list) > 1) {
-			return implode($separator, array_slice($list, null, -1)) . ' ' . $and . ' ' . array_pop($list);
-		} else {
-			return array_pop($list);
-		}
-	}
 }
 
 ?>
