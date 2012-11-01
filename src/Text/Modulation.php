@@ -23,9 +23,8 @@ class Text_Modulation {
 		);
 		if ($options['html']) {
 			return static::_adapter('html')->limit($string, $length, $options['end'], $options['exact']);
-		} else {
-			return static::_adapter('text')->limit($string, $length, $options['end']);
 		}
+		return static::_adapter('text')->limit($string, $length, $options['end']);
 	}
 
 	// html only
@@ -33,10 +32,7 @@ class Text_Modulation {
 		$options += array(
 			'html' => false
 		);
-		if ($options['html']) {
-			return static::_adapter('html')->highlight($text, $phrase);
-		}
-		throw new Exception('Unimplemented; highlight support only for type `html`.');
+		return static::_adapter($options['html'] ? 'html' : 'text')->highlight($text, $phrase);
 	}
 
 	// html and text
@@ -69,10 +65,7 @@ class Text_Modulation {
 		$options += array(
 			'html' => false
 		);
-		if ($options['html']) {
-			throw new Exception('Unimplemented; no lines support for type `html`.');
-		}
-		return static::_adapter('text')->lines($string, $lines, $end);
+		return static::_adapter($options['html'] ? 'html' : 'text')->lines($string, $lines, $end);
 	}
 
 	/**
@@ -98,12 +91,9 @@ class Text_Modulation {
 		$options += array(
 			'html' => false
 		);
-		if (!$options['html']) {
-			throw new Exception('Unimplemented; autolinking only for type `html`.');
-		}
+		$text = static::_adapter($options['html'] ? 'html' : 'text')->autoLinkUrls($text);
+		$text = static::_adapter($options['html'] ? 'html' : 'text')->autoLinkEmails($text);
 
-		$text = static::_adapter('html')->autoLinkUrls($text);
-		$text = static::_adapter('html')->autoLinkEmails($text);
 		return $text;
 	}
 }

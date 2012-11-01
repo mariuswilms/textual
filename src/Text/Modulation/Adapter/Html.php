@@ -177,6 +177,10 @@ class Text_Modulation_Adapter_Html {
 		return $excerpt;
 	}
 
+	public function lines($string, $lines = 15, $end = '…') {
+		throw new Exception('Unimplemented.');
+	}
+
 	/**
 	 * Adds links (<a href=....) to a given text, by finding text that begins with
 	 * strings like http:// and ftp://.

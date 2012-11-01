@@ -13,13 +13,8 @@ class Text_Modulation_Adapter_Text {
 		return $string;
 	}
 
-	public function lines($string, $lines = 15, $end = '…') {
-		$parts = explode("\n", $string);
-
-		$parts = array_slice($parts, 0, $lines);
-
-		$string = implode("\n", $parts);
-		return $this->_connect($string, null, $end);
+	public function highlight($text, $phrase) {
+		throw new Exception('Unimplemented.');
 	}
 
 	public function excerpt($string, $length = 400, $minLineLength = 100, $start = '…', $end = '…') {
@@ -61,6 +56,23 @@ class Text_Modulation_Adapter_Text {
 		$end = key($results) === key($parts) ? null : $end;
 
 		return $this->_connect($string, $start, $end);
+	}
+
+	public function lines($string, $lines = 15, $end = '…') {
+		$parts = explode("\n", $string);
+
+		$parts = array_slice($parts, 0, $lines);
+
+		$string = implode("\n", $parts);
+		return $this->_connect($string, null, $end);
+	}
+
+	public function autoLinkUrls($text) {
+		throw new Exception('Unimplemented.');
+	}
+
+	public function autoLinkEmails($text) {
+		throw new Exception('Unimplemented.');
 	}
 
 	protected function _connect($string, $start = null, $end = null) {
