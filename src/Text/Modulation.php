@@ -9,7 +9,7 @@ class Text_Modulation {
 			return static::$_adapters[$name];
 		}
 		$class = 'Text_Modulation_Adapter_' . ucfirst($name);
-		require_once str_replace('_', '/', $class) . '.php';
+		require_once dirname(__DIR__) . '/' . str_replace('_', '/', $class) . '.php';
 
 		return static::$_adapters[$name] = new $class();
 	}
