@@ -24,7 +24,7 @@ class Text_Modulation_Adapter_Text {
 			return $string;
 		}
 
-		$results = array();
+		$results = [];
 		$resultsLength = 0;
 
 		foreach ($parts as $key => $part) {

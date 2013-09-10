@@ -7,7 +7,7 @@
  */
 class Text_Modulation {
 
-	protected static $_adapters = array();
+	protected static $_adapters = [];
 
 	protected static function _adapter($name) {
 		if (isset(static::$_adapters[$name])) {
@@ -20,12 +20,12 @@ class Text_Modulation {
 	}
 
 	// html support
-	public static function limit($string, $length = 50, $options = array()) {
-		$options += array(
+	public static function limit($string, $length = 50, $options = []) {
+		$options += [
 			'html' => false,
 			'end' => '…',
 			'exact' => true // html mode only
-		);
+		];
 		if ($options['html']) {
 			return static::_adapter('html')->limit($string, $length, $options['end'], $options['exact']);
 		}
@@ -33,22 +33,22 @@ class Text_Modulation {
 	}
 
 	// html only
-	public static function highlight($text, $phrase, $options = array()) {
-		$options += array(
+	public static function highlight($text, $phrase, $options = []) {
+		$options += [
 			'html' => false
-		);
+		];
 		return static::_adapter($options['html'] ? 'html' : 'text')->highlight($text, $phrase);
 	}
 
 	// html and text
-	public static function excerpt($string, $length = 50, $options = array()) {
-		$options += array(
+	public static function excerpt($string, $length = 50, $options = []) {
+		$options += [
 			'html' => false,
 			'end' => '…',
 			'minLineLength' => 100, // non-html mode only
 			'start' => '…', // non-html mode only
 			'phrase' => null // html-mode only
-		);
+		];
 		if ($options['html']) {
 			if (!$options['phrase']) {
 				$message = 'You must provide a phrase for html mode; fallback to whole string.';
@@ -66,10 +66,10 @@ class Text_Modulation {
 	}
 
 	// text only
-	public static function lines($string, $lines = 15, $end = '…', $options = array()) {
-		$options += array(
+	public static function lines($string, $lines = 15, $end = '…', $options = []) {
+		$options += [
 			'html' => false
-		);
+		];
 		return static::_adapter($options['html'] ? 'html' : 'text')->lines($string, $lines, $end);
 	}
 
@@ -92,10 +92,10 @@ class Text_Modulation {
 		}
 	}
 
-	public static function autoLink($text, $options = array()) {
-		$options += array(
+	public static function autoLink($text, $options = []) {
+		$options += [
 			'html' => false
-		);
+		];
 		$text = static::_adapter($options['html'] ? 'html' : 'text')->autoLinkUrls($text);
 		$text = static::_adapter($options['html'] ? 'html' : 'text')->autoLinkEmails($text);
 

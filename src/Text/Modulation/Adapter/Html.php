@@ -31,7 +31,7 @@ class Text_Modulation_Adapter_Html {
 			return $text;
 		}
 		$totalLength = mb_strlen(strip_tags($end));
-		$openTags = array();
+		$openTags = [];
 		$truncate = '';
 
 		preg_match_all('/(<\/?([\w+]+)[^>]*>)?([^<>]*)/', $text, $tags, PREG_SET_ORDER);
@@ -126,8 +126,8 @@ class Text_Modulation_Adapter_Html {
 		}
 
 		if (is_array($phrase)) {
-			$replace = array();
-			$with = array();
+			$replace = [];
+			$with = [];
 
 			foreach ($phrase as $key => $segment) {
 				$segment = '(' . preg_quote($segment, '|') . ')';
@@ -157,7 +157,7 @@ class Text_Modulation_Adapter_Html {
 	 */
 	public function excerpt($text, $phrase, $radius = 100, $end = '…') {
 		if (empty($text) || empty($phrase)) {
-			return self::truncate($text, $radius * 2, array('end' => $end));
+			return self::truncate($text, $radius * 2, ['end' => $end]);
 		}
 
 		$append = $prepend = $end;
@@ -201,8 +201,8 @@ class Text_Modulation_Adapter_Html {
 	 * @return string The text with links
 	 */
 	public function autoLinkUrls($text) {
-		$placeholders = array();
-		$replace = array();
+		$placeholders = [];
+		$replace = [];
 
 		$insertPlaceholder = function($matches) use (&$placeholders) {
 			$key = md5($matches[0]);
