@@ -74,9 +74,10 @@ class Text_Modulation {
 	// text only
 	public static function lines($string, $lines = 15, $end = '…', $options = []) {
 		$options += [
+			'end' => '…',
 			'html' => false
 		];
-		return static::_adapter($options['html'] ? 'html' : 'text')->lines($string, $lines, $end);
+		return static::_adapter($options['html'] ? 'html' : 'text')->lines($string, $lines, $options['end']);
 	}
 
 	/**
