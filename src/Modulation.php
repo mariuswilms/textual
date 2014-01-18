@@ -8,7 +8,9 @@
  * license that can be found in the LICENSE file.
  */
 
-class Text_Modulation {
+namespace textual;
+
+class Modulation {
 
 	protected static $_adapters = [];
 
@@ -16,9 +18,7 @@ class Text_Modulation {
 		if (isset(static::$_adapters[$name])) {
 			return static::$_adapters[$name];
 		}
-		$class = 'Text_Modulation_Adapter_' . ucfirst($name);
-		require_once dirname(__DIR__) . '/' . str_replace('_', '/', $class) . '.php';
-
+		$class = '\textual\modulation\adapter\\' . ucfirst($name);
 		return static::$_adapters[$name] = new $class();
 	}
 

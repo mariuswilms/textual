@@ -7,7 +7,10 @@
  * Use of this source code is governed by a BSD-style
  * license that can be found in the LICENSE file.
  */
-class Text_Modulation_Adapter_Text {
+
+namespace textual\modulation\adapter;
+
+class Text {
 
 	const START_CONNECT_CHARS = ' .,:;!?-&(<[_-+\'';
 	const END_CONNECT_CHARS   = ' .,:;!?-&)>]_-+\'';

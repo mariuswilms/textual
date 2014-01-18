@@ -13,7 +13,11 @@
  * Use of this source code is governed by a BSD-style
  * license that can be found in the LICENSE file.
  */
-class Text_Modulation_Adapter_Html {
+
+namespace textual\modulation\adapter;
+
+class Html {
+
 	/**
 	 * Truncates text. Cuts a string to the length of $length and replaces the
 	 * last characters with the ending if the text is longer than length.
