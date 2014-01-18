@@ -1,9 +1,15 @@
 <?php
 /**
- * Copyright (c) 2012 David Persson. All rights reserved.
+ * Modulation File
+ *
+ * Copyright (c) 2013 David Persson. All rights reserved.
  *
  * Use of this source code is governed by a BSD-style
  * license that can be found in the LICENSE file.
+ */
+
+/**
+ * Modulation Class
  */
 class Text_Modulation {
 

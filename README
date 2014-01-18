@@ -10,39 +10,35 @@ Usage
 -----
 -
 
-Copyright & License
--------------------
-
-Unless otherwise noted, Textual source files are distributed
-under the BSD 3-clause license found in the LICENSE file.
-
-Unless otherwise noted, the Go source files are distributed
-under the BSD-style license found in the LICENSE file.
+Copyright, License & Attribution
+--------------------------------
 
 Copyright (c) 2012 David Persson
 Copyright (c) 2005-2012 Cake Software Foundation, Inc.
 Copyright (c) 2004-2008 Michel Fortin
 
-https://github.com/joyent/node/blob/master/LICENSE
-https://code.google.com/p/go/source/browse/AUTHORS
+Unless otherwise noted, Textual is Copyright (c) 2012 David Persson.
 
-
-Textual, is Copyright (c) 2012 David Persson if not otherwise
-stated. The code is distributed under the terms of the MIT License.
-
-Textual is contains original and modified code from CakePHP(tm). These parts are
+Textual contains original and modified code from CakePHP(tm). These parts are
 Copyright (c) 2005-2012 Cake Software Foundation, Inc. (http://cakefoundation.org).
 
-For the full license text see the LICENSE file.
+The Textual source files are distributed under the BSD 3-clause license found
+in the LICENSE file.
 
-Credits
--------
-Text helper, and String utility classes originally
-part of CakePHP(tm), https://github.com/cakephp/cakephp.
+
+https://github.com/joyent/node/blob/master/LICENSE
+https://code.google.com/p/go/source/browse/AUTHORS
 
 Email encoding based upon the implementation as available in PHP Markdown by
 Michel Fortin, originally based upon a filter by Matthew Wickline, with some
 optimizations by Milian Wolff.
+
+For the full license text see the LICENSE file.
+
+
+Text helper, and String utility classes originally
+part of CakePHP(tm), https://github.com/cakephp/cakephp.
+
 
 Requirements
 ------------
