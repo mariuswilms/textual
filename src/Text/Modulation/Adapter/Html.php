@@ -1,9 +1,20 @@
 <?php
 /**
- * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * Copyright 2005-2012, Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * textual: tools for text
+ *
+ * Copyright (c) 2012 David Persson
+ * Copyright (c) 2005-2012 Cake Software Foundation, Inc.
+ * Copyright (c) 2004-2008 Michel Fortin
+ *
+ * This class is based upon code found in the CakePHP(tm) text helper, and
+ * string utility classes. Email encoding based upon the implementation as
+ * available in PHP Markdown by Michel Fortin.
+ *
+ * @copyright  2012 David Persson <nperson@gmx.de>
+ * @copyright  2005-2012 Cake Software Foundation, Inc.
+ * @copyright  2004-2008 Michel Fortin
+ * @license    http://www.opensource.org/licenses/mit-license.php The MIT License
  */
-
 class Text_Modulation_Adapter_Html {
 	/**
 	 * Truncates text. Cuts a string to the length of $length and replaces the
@@ -229,9 +240,6 @@ class Text_Modulation_Adapter_Html {
 		// Based upon the implementation as available in PHP Markdown.
 		// Copyright (c) 2004-2008 Michel Fortin
 		// Licensed under the 3-clause BSD license.
-		//
-		// Originally Based by a filter by Matthew Wickline, posted to BBEdit-Talk.
-		// With some optimizations by Milian Wolff.
 		$encode = function($addr) {
 			$addr = "mailto:{$addr}";
 			$chars = preg_split('/(?<!^)(?!$)/', $addr);
