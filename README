@@ -12,33 +12,31 @@ Usage
 
 Copyright, License & Attribution
 --------------------------------
-
-Copyright (c) 2012 David Persson
-Copyright (c) 2005-2012 Cake Software Foundation, Inc.
-Copyright (c) 2004-2008 Michel Fortin
-
-Unless otherwise noted, Textual is Copyright (c) 2012 David Persson.
+Textual is Copyright (c) 2012-2014 David Persson if not otherwise stated. The
+code is distributed under the terms of the BSD 3-clause License. For the
+full license text see the LICENSE file.
 
 Textual contains original and modified code from CakePHP(tm). These parts are
-Copyright (c) 2005-2012 Cake Software Foundation, Inc. (http://cakefoundation.org).
+Copyright (c) 2005-2012 Cake Software Foundation, Inc. (http://cakefoundation.org)
+and licensed under the terms of the MIT License.
 
-The Textual source files are distributed under the BSD 3-clause license found
-in the LICENSE file.
+Textual's email encoding based upon the implementation as available in PHP Markdown
+by Michel Fortin, originally based upon a filter by Matthew Wickline, with some
+optimizations by Milian Wolff. These parts are Copyright (c) 2004-2009 Michel Fortin
+and licensed under the terms of the BSD 3-claus License.
 
+Versions & Requirements
+-----------------------
+Textual follows the rolling release development model. Code in the master
+branch should always considered to be stable. While code in the dev branch
+should be considered unstable or sometimes even expiremental.
 
-https://github.com/joyent/node/blob/master/LICENSE
-https://code.google.com/p/go/source/browse/AUTHORS
+There are no versions as in the standard release development model but
+snapshots. The master branch may be tagged ("snapshotted") at any point in
+time when a significant point of development has been reached.
 
-Email encoding based upon the implementation as available in PHP Markdown by
-Michel Fortin, originally based upon a filter by Matthew Wickline, with some
-optimizations by Milian Wolff.
+Snapshots are schemed as follows:
+[current year, four digit].[index, zero based]
 
-For the full license text see the LICENSE file.
+PHP >=5.4 is required to run the code.
 
-
-Text helper, and String utility classes originally
-part of CakePHP(tm), https://github.com/cakephp/cakephp.
-
-
-Requirements
-------------
