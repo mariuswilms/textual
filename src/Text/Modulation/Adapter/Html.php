@@ -2,7 +2,7 @@
 /**
  * textual: tools for text
  *
- * Copyright (c) 2012 David Persson
+ * Copyright (c) 2012-2014 David Persson
  * Copyright (c) 2005-2012 Cake Software Foundation, Inc.
  * Copyright (c) 2004-2008 Michel Fortin
  *
@@ -10,10 +10,8 @@
  * string utility classes. Email encoding based upon the implementation as
  * available in PHP Markdown by Michel Fortin.
  *
- * @copyright  2012 David Persson <nperson@gmx.de>
- * @copyright  2005-2012 Cake Software Foundation, Inc.
- * @copyright  2004-2008 Michel Fortin
- * @license    http://www.opensource.org/licenses/mit-license.php The MIT License
+ * Use of this source code is governed by a BSD-style
+ * license that can be found in the LICENSE file.
  */
 class Text_Modulation_Adapter_Html {
 	/**

@@ -1,16 +1,13 @@
 <?php
 /**
- * Modulation File
+ * textual: tools for text
  *
- * Copyright (c) 2013 David Persson. All rights reserved.
+ * Copyright (c) 2012-2014 David Persson
  *
  * Use of this source code is governed by a BSD-style
  * license that can be found in the LICENSE file.
  */
 
-/**
- * Modulation Class
- */
 class Text_Modulation {
 
 	protected static $_adapters = [];

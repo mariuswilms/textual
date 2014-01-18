@@ -1,5 +1,12 @@
 <?php
-
+/**
+ * textual: tools for text
+ *
+ * Copyright (c) 2012-2014 David Persson
+ *
+ * Use of this source code is governed by a BSD-style
+ * license that can be found in the LICENSE file.
+ */
 class Text_Modulation_Adapter_Text {
 
 	const START_CONNECT_CHARS = ' .,:;!?-&(<[_-+\'';
