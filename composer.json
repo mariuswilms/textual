@@ -1,11 +1,20 @@
 {
     "name": "davidpersson/textual",
     "description": "PHP library with tools for modulating text.",
-    "license": "BSD-3-Clause",
+    "license": ["BSD-3-Clause", "MIT"],
     "authors": [
         {
             "name": "David Persson",
             "email": "davidpersson@gmx.de"
+        },
+        {
+            "name": "Cake Software Foundation, Inc.",
+            "homepage": "http://cakefoundation.org",
+            "role": "Original Author"
+        },
+        {
+            "name": "Michel Fortin",
+            "role": "Original Author Email Encoding"
         }
     ],
     "require": {
