@@ -1,0 +1,19 @@
+{
+    "name": "davidpersson/textual",
+    "description": "PHP library with tools for modulating text.",
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "David Persson",
+            "email": "davidpersson@gmx.de"
+        }
+    ],
+    "require": {
+
+    },
+    "autoload": {
+      "psr-4": {
+        "textual\\": "src/"
+      }
+    }
+}
