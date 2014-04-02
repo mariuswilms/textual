@@ -26,18 +26,3 @@ with some optimizations by Milian Wolff. These parts are Copyright (c)
 2004-2009 Michel Fortin and licensed under the terms of the BSD 3-clause
 License.
 
-Versions & Requirements
------------------------
-Textual follows the rolling release development model. Code in the master
-branch should always considered to be stable. While code in the dev branch
-should be considered unstable or sometimes even expiremental.
-
-There are no versions as in the standard release development model but
-snapshots. The master branch may be tagged ("snapshotted") at any point in
-time when a significant point of development has been reached.
-
-Snapshots are schemed as follows:
-[current year, four digit].[index, zero based]
-
-PHP >=5.4 is required to run the code.
-
